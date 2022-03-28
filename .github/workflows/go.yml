@@ -5,33 +5,14 @@ on:
     branches: [ master ]
   pull_request:
     branches: [ master ]
-
 jobs:
-
-  build:
+  test:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    
-    - name: tag
-      run: echo ${GITHUB_REF:10}
-
-    - name: hash commit
-      run: echo ${GITHUB_SHA::7}
-
-    - name: Set up Go
-      uses: actions/setup-go@v2
-      with:
-        go-version: 1.17
-        
-    - name: init
-      run: go mod init person
-      
-    - name: tidy
-      run: go mod tidy
-
-    - name: Build
-      run: go build -v ./...
-
-    - name: Test
-      run: go test -v ./...
+      - uses: actions/checkout@v2
+      - name: Set env
+        run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
+      - name: Test
+        run: |
+          echo $RELEASE_VERSION
+          echo ${{ env.RELEASE_VERSION }}
