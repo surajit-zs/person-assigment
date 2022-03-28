@@ -12,6 +12,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
+    
+    - name: tag
+      run: echo ${GITHUB_REF:10}
+
+    - name: hash commit
+      run: echo ${GITHUB_SHA::7}
 
     - name: Set up Go
       uses: actions/setup-go@v2
