@@ -15,7 +15,6 @@ jobs:
         run: echo ${GITHUB_SHA::7}
       - name: change env
         run: |
-          cd configs
-          echo "APP_VERSION=${GITHUB_SHA::7}" >> .env
+          echo "APP_VERSION=${GITHUB_SHA::7}" >> configs/.env
           cat .env
 
