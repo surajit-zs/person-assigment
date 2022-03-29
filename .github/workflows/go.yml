@@ -20,4 +20,3 @@ jobs:
           sed -i~ '/^APP_VERSION=/s/=.*/=echo ${GITHUB_SHA::7}/' .env
           cat .env
 
-g
