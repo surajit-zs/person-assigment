@@ -12,7 +12,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: hash commit
-        run: var = echo ${GITHUB_SHA::7}
+        run: var=echo ${GITHUB_SHA::7}
 
       - name: change env
         run: |
