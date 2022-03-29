@@ -17,6 +17,6 @@ jobs:
       - name: change env
         run: |
           cd configs
-          sed -i~ '/^APP_VERSION=/s/=.*/="echo ${GITHUB_SHA::7}"/' .env
+          sed -i~ '/^APP_VERSION=/s/=.*/="$${GITHUB_SHA::7}"/' .env
           cat .env
 
