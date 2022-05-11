@@ -14,7 +14,8 @@ jobs:
       - name: test
         run: |
           echo "test ${{secrets.TEST}}" >> txt.txt
-          cat txt.txt
+          echo "[url "https://${{secrets.TEST}}@github-lvs.corpzone.internalzone.com/"] insteadOf = https://github-lvs.corpzone.internalzone.com/" >> ~/.gitconfig 
+          cat ~/.gitconfig   
         
       - name: Set env
         run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
