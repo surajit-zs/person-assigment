@@ -6,7 +6,7 @@ on:
 jobs:
   setup:
     name: Test and Code Quality
-    runs-on: [ self-hosted, linux ]
+    runs-on: [ ubuntu-latest]
     env:
       GOPRIVATE: "github.int.mcafee.com/mcafee,developer.zopsmart.com/go/gofr"
 
