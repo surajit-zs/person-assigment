@@ -6,7 +6,7 @@ on:
 jobs:
   setup:
     name: Test and Code Quality
-    runs-on: [ ubuntu-latest]
+    runs-on: ubuntu-latest
     env:
       GOPRIVATE: "github.int.mcafee.com/mcafee,developer.zopsmart.com/go/gofr"
 
@@ -15,8 +15,7 @@ jobs:
         image: mysql:latest
         ports:
           - "3306:3306"
-        env:
-          MYSQL_ROOT_PASSWORD: "password"
+
     steps:
       - name: Set up  Go 1.17
         uses: actions/setup-go@v2
