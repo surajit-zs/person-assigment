@@ -8,7 +8,7 @@ jobs:
     name: Test and Code Quality
     runs-on: ubuntu-latest
     env:
-      GOPRIVATE: "github.int.mcafee.com/mcafee,developer.zopsmart.com/go/gofr"
+      GOPRIVATE: "developer.zopsmart.com/go/gofr"
 
     services:
       mysql:
@@ -26,9 +26,6 @@ jobs:
       - name: Checkout code into go module directory
         uses: actions/checkout@v2
 
-      - name: Set up MySQL
-        run: |
-          docker exec -i ${{ job.services.mysql.id }} mysql -uroot -ppassword -e 'CREATE DATABASE test;'
       - name: Get dependencies
         run: |
           go get -v -t -d ./...
