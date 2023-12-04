@@ -1,5 +1,6 @@
-name: 'Hello World'
+name: 'Hello World spore'
 description: 'Greet someone'
+author: "surajit-zs"
 inputs:
   who-to-greet:  # id of input
     description: 'Who to greet'
